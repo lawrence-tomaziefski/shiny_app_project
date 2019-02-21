@@ -1,0 +1,53 @@
+Effect of Diet on the Early Growth of Chicks
+========================================================
+author: Lawrence A. Tomaziefski
+date: 20 February 2019
+autosize: true
+
+Background
+========================================================
+
+The body weights of the chicks were measured at birth and every second day thereafter until day 20. They were also measured on day 21. There were four groups on chicks on different protein diets. 
+
+- The "ChickWeight"" data set has 578 rows and 4 columns from an experiment on the effect of diet on early growth of chicks.
+- The body weights of the chicks were measured at birth and every second day thereafter until day 20. They were also measured on day 21. There were four groups on chicks on different protein diets.
+- More information about this data set is found at: <https://www.rdocumentation.org/packages/datasets/versions/3.5.2/topics/ChickWeight>.
+
+Exploring the "ChickWeight"" Data Set Further
+========================================================
+The "ChickWeight" dataset contains the following information:
+- weight: Body weight of the chick in grams.
+- Time: Day sinc birth the measurement was made (0-21).
+- Chick: ID number of the chick measured (1-50). 
+- Diet: A factor with levels 1 to 4 indicating which experimental diet the chick received.
+```{r echo=FALSE, fig.height=6, fig.width=8}
+library(ggplot2)
+ggplot(ChickWeight, aes(x=Time, y=weight, shape=Diet, color = Diet)) +
+        theme(panel.background = element_rect(fill = NA),
+              panel.grid.minor = element_line(color = NA),
+              panel.grid.major.x = element_line(color = NA),
+              panel.grid.major.y = element_line(color = "grey95"),
+              panel.border = element_rect(color = "black", fill = NA, size = 1),
+              plot.title = element_text(hjust = 0.5),
+              text = element_text(size = 10, color = "black", face = "bold"),
+              plot.caption = element_text(hjust = 0.5)) + 
+        geom_point(size=2) +
+        scale_shape_manual(values = c(1,1,1,1))+
+        labs(y = "Chick Weight (gm)",
+             x = "Day",
+             title = "Comparison of Chick Weights by Experimenatial Diet")
+```
+
+The Chick Weight Shiny App 
+========================================================
+The Chick Weight Shiny App is a simple app that helps analyst to conduct see the effects of the experimental diets over time and conduct pair-wise comparisons of the experimental diets effects.
+
+- The app asks the user to select two experimental diets to compare and produces a plot comparing the chick weights over time.
+- Use the following link to try the app: <https://www.rdocumentation.org/packages/datasets/versions/3.5.2/topics/ChickWeight>
+
+The Chick Weight Shiny App Code
+========================================================
+The code to generate the app is found at:
+<https://www.rdocumentation.org/packages/datasets/versions/3.5.2/topics/ChickWeight>
+
+
